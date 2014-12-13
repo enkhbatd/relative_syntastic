@@ -33,7 +33,6 @@ function! SyntaxCheckers_php_relative_phpcs_IsAvailable() dict
   return 1
 endfunction
 
-
 function! SyntaxCheckers_php_relative_phpcs_GetLocList() dict
   let l:project_dir = s:find_project_dir()
   let l:sniff_bin = l:project_dir . '/vendor/bin/phpcs'
