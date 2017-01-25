@@ -25,9 +25,10 @@ function! SyntaxCheckers_ruby_bundle_rubocop_IsAvailable() dict
     end
 
     let ver = syntastic#util#system('cd ' . l:project_dir . '; bundle exec rubocop --version 2> /dev/null')
-    call self.log(self.getExec() . ' version =', ver)
+    call self.log(self.getExec() . ' version =' . ver)
 
-    return syntastic#util#versionIsAtLeast(ver, [0, 12, 0])
+    let pver = syntastic#util#parseVersion(ver)
+    return syntastic#util#versionIsAtLeast(pver, [0, 12, 0])
 endfunction
 
 function! SyntaxCheckers_ruby_bundle_rubocop_GetLocList() dict
